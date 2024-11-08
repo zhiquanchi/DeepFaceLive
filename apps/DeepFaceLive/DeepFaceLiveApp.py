@@ -229,6 +229,7 @@ class DeepFaceLiveApp(qtx.QXMainApplication):
             settings_dirpath.mkdir(parents=True)
         super().__init__(app_name='DeepFaceLive', settings_dirpath=settings_dirpath)
 
+
         self.setFont( QXFontDB.get_default_font() )
         self.setWindowIcon( QXImageDB.app_icon().as_QIcon() )
 
@@ -257,6 +258,8 @@ class DeepFaceLiveApp(qtx.QXMainApplication):
 
         if self._dfl_wnd is None:
             self._dfl_wnd = QDFLAppWindow(userdata_path=self.userdata_path, settings_dirpath=self.settings_dirpath)
+
+        self._dfl_wnd.setWindowTitle("天羽幻颜")  # 设置窗口标题
 
     def finalize(self):
         if self._dfl_wnd is not None:
